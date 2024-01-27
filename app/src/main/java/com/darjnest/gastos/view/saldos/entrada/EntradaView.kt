@@ -56,11 +56,7 @@ fun EntradaView(){
                     .weight(2f)
                     .verticalScroll(rememberScrollState())
             ){
-                InputTextView(
-                    hint = "SALDO",
-                    singleLine = true,
-                    selectedValue = ,
-                    onValueChange = )
+
             }
 
         }
