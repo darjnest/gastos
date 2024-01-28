@@ -31,11 +31,12 @@ import com.darjnest.gastos.viewmodel.saldos.entrada.EntradaViewModel
 @Composable
 fun EntradaViewPreview() {
 
-    EntradaView()
+    EntradaView(id = "")
 }
 
 @Composable
 fun EntradaView(
+    id : String,
     viewModel: EntradaViewModel = hiltViewModel()
 ) {
 
@@ -112,7 +113,7 @@ fun EntradaView(
 
                     AcceptButtonView(
                         onAttachImages = { isUploadImage = true},
-                        onSaveAndSend = { /*TODO*/ }) {
+                        onSaveAndSend = { viewModel.validateForm(id) }) {
 
                     }
                 }

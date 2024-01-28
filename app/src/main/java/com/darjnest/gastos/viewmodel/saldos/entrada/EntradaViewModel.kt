@@ -1,8 +1,11 @@
 package com.darjnest.gastos.viewmodel.saldos.entrada
 
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.darjnest.gastos.data.database.DatabaseRepository
+import com.darjnest.gastos.domain.model.BD.EntradaBD
 import com.darjnest.gastos.domain.model.Entrada
 import com.darjnest.gastos.util.FormValidationState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,23 +17,26 @@ import javax.inject.Inject
 
 @HiltViewModel
 class EntradaViewModel @Inject constructor(
+    private val databaseRepository: DatabaseRepository
 
 ) : ViewModel() {
 
     val formValidationState = FormValidationState()
     val formEntrada = mutableStateOf(Entrada())
+    val ingreso = mutableStateOf(EntradaBD())
 
     fun onNameSelected(value: String) {
 
         formEntrada.value = formEntrada.value.copy(name = value)
         formValidationState.ValidateName(formEntrada.value.name)
-
+        ingreso.value.name = value
 
     }
 
     fun onSaldoSelected(value: String) {
         formEntrada.value = formEntrada.value.copy(saldo = value)
         formValidationState.ValidateSaldo(formEntrada.value.saldo)
+        ingreso.value.saldo = value
     }
 
     fun onFechaSelected(value: Long) {
@@ -39,15 +45,16 @@ class EntradaViewModel @Inject constructor(
         val formatter = SimpleDateFormat("dd-MM-yyyy", Locale.ROOT).apply {
             timeZone = TimeZone.getTimeZone("UTC")
         }
-        //    reporte.value.fechaCreacion = formatter.format(value)
+            ingreso.value.date = formatter.format(value)
     }
 
     fun onDescripSelected(value: String) {
         formEntrada.value = formEntrada.value.copy(descripcion = value)
         formValidationState.ValidateDescrp(formEntrada.value.descripcion)
+        ingreso.value.descripcion = value
     }
 
-    fun validateForm() = viewModelScope.launch {
+    fun validateForm(id : String) = viewModelScope.launch {
 
         formValidationState.ValidateName(formEntrada.value.name)
         formValidationState.ValidateSaldo(formEntrada.value.saldo)
@@ -55,12 +62,16 @@ class EntradaViewModel @Inject constructor(
         formValidationState.ValidateDescrp(formEntrada.value.descripcion)
 
         if (formValidationState.areAllValidationsCorrect()) {
-            saveReporte()
+            saveIngreso(id)
         }
     }
 
-    fun saveReporte() = viewModelScope.launch {
-        
+    fun saveIngreso(id : String) = viewModelScope.launch {
+
+        ingreso.value.id_Entrada = id
+        databaseRepository.insertEntrada(ingreso.value)
+
+
 
     }
 
