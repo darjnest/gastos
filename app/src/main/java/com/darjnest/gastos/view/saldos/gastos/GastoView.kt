@@ -5,11 +5,11 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview
 @Composable
-fun GastoViewPreview(){
+fun GastoViewPreview() {
 
 }
 
 @Composable
-fun GastoView(){
+fun GastoView() {
 
 }
