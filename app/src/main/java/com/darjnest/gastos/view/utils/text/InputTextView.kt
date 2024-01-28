@@ -1,4 +1,4 @@
-package com.darjnest.gastos.view.util.text
+package com.darjnest.gastos.view.utils.text
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -36,11 +36,13 @@ fun InputTextView(
         OutlinedTextField(
             value = selectedValue,
             onValueChange = onValueChange,
-            label = { Text(
-                text = hint,
-                fontWeight = FontWeight.Bold,
-                color = Color.Gray
-            ) },
+            label = {
+                Text(
+                    text = hint,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Gray
+                )
+            },
             singleLine = singleLine,
             maxLines = 3,
             modifier = modifier

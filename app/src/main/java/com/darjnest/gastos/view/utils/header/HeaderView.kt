@@ -1,4 +1,4 @@
-package com.darjnest.gastos.view.util.header
+package com.darjnest.gastos.view.utils.header
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -19,17 +19,17 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.darjnest.gastos.view.util.text.TitleBoxAppView
+import com.darjnest.gastos.view.utils.text.TitleBoxAppView
 
 @Composable
 fun HeaderView(
     marginTop: Dp = 0.dp,
     title: String,
     subTitle: String,
-    tipe:String,
+    tipe: String,
     imageResource: Int
 
-){
+) {
     Row(
         modifier = Modifier
             .padding(top = marginTop)
@@ -51,7 +51,11 @@ fun HeaderView(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(painter = painterResource(id = imageResource), contentDescription = "", modifier = Modifier.height(60.dp))
+            Image(
+                painter = painterResource(id = imageResource),
+                contentDescription = "",
+                modifier = Modifier.height(60.dp)
+            )
             Text(
                 text = tipe,
                 fontWeight = FontWeight.Bold,

@@ -3,14 +3,13 @@ package com.darjnest.gastos.view.home
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowForward
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -22,9 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.darjnest.gastos.ui.theme.RedHome
 import com.darjnest.gastos.view.menu.MenuView
-import com.darjnest.gastos.view.util.button.FloatingActionButtonView
-import com.darjnest.gastos.view.util.logo.LogoView
-import com.darjnest.gastos.view.util.text.TextView
+import com.darjnest.gastos.view.utils.button.FloatingActionButtonView
 
 @Preview
 @Composable
@@ -53,7 +50,7 @@ fun HomeView() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        imageVector = Icons.Filled.ArrowBack,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = null,
                         tint = RedHome,
                         modifier = Modifier.size(20.dp)
@@ -79,7 +76,7 @@ fun HomeView() {
                         }
                     )
                     Icon(
-                        imageVector = Icons.Filled.ArrowForward,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowForward,
                         contentDescription = null,
                         tint = RedHome,
                         modifier = Modifier.size(20.dp)

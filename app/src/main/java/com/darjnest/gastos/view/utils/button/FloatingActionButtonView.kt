@@ -1,4 +1,4 @@
-package com.darjnest.gastos.view.util.button
+package com.darjnest.gastos.view.utils.button
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.animateFloatAsState
@@ -27,7 +27,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun FloatingActionButtonViewPreview(){
+fun FloatingActionButtonViewPreview() {
     FloatingActionButtonView()
 }
 

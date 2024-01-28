@@ -1,4 +1,4 @@
-package com.darjnest.gastos.view.util.logo
+package com.darjnest.gastos.view.utils.logo
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -15,7 +15,7 @@ import com.darjnest.gastos.R
 
 @Preview
 @Composable
-fun LogoViewPreview(){
+fun LogoViewPreview() {
     LogoView()
 }
 
