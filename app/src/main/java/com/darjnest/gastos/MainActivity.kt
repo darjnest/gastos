@@ -7,8 +7,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+import com.darjnest.gastos.presentation.navigation.GastoNavigation
+import com.darjnest.gastos.presentation.navigation.GastoScreen
+import com.darjnest.gastos.presentation.view.saldos.gastos.GastoView
 import com.darjnest.gastos.ui.theme.GastosTheme
-import com.darjnest.gastos.view.home.HomeView
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,7 +26,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeView()
+                    GastoNavigation(navController = rememberNavController())
+
                 }
             }
         }
