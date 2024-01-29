@@ -39,7 +39,7 @@ fun HomeView(navController: NavController) {
 
     Scaffold(
         topBar = { MenuView(navController) },
-        floatingActionButton = { FloatingActionButtonView() },
+        floatingActionButton = { FloatingActionButtonView(id.toString(),navController) },
     ) {
         Column(
             modifier = Modifier.padding(it)
@@ -62,7 +62,7 @@ fun HomeView(navController: NavController) {
                     )
                     Text(
                         text = "ULTIMOS GASTOS",
-                        fontSize = 20.sp,
+                        fontSize = 16.sp,
                         color = RedHome,
                         modifier = Modifier
                             .weight(1f)
@@ -72,8 +72,8 @@ fun HomeView(navController: NavController) {
                     )
 
                     Text(
-                        text = "ENTRADA",
-                        fontSize = 20.sp,
+                        text = "ULTIMAS ENTRADAS",
+                        fontSize = 16.sp,
                         color = RedHome,
                         modifier = Modifier.clickable {
 

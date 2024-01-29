@@ -34,7 +34,7 @@ import com.darjnest.gastos.presentation.viewmodel.saldos.entrada.EntradaViewMode
 @Composable
 fun EntradaViewPreview() {
 
-    EntradaView(id = "sdaasd-weqweqw-eqweqweqw-wqeqweqwe", navController = rememberNavController())
+    EntradaView(id = "", navController = rememberNavController())
 }
 
 @Composable

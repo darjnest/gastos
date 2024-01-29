@@ -24,15 +24,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
+import com.darjnest.gastos.presentation.navigation.GastoScreen
 
 @Preview
 @Composable
 fun FloatingActionButtonViewPreview() {
-    FloatingActionButtonView()
+    FloatingActionButtonView(id = "", navController = rememberNavController())
 }
 
 @Composable
-fun FloatingActionButtonView() {
+fun FloatingActionButtonView(id : String,navController: NavController) {
 
     var expanded by remember { mutableStateOf(false) }
     val rotation by animateFloatAsState(
@@ -59,17 +62,17 @@ fun FloatingActionButtonView() {
                     .padding(10.dp)
                     .align(Alignment.Bottom)
             ) {
-                SmallFloatingActionButton(onClick = {})
+                SmallFloatingActionButton(onClick = { navController.navigate(GastoScreen.Maps.name) })
                 {
                     Icon(imageVector = Icons.Default.LocationOn, contentDescription = "Map")
                 }
-                SmallFloatingActionButton(onClick = {})
+                SmallFloatingActionButton(onClick = { navController.navigate(GastoScreen.Ingreso.name +"?id=$id") })
                 {
                     Icon(imageVector = Icons.Default.Check, contentDescription = "Agregar")
                 }
-                SmallFloatingActionButton(onClick = {})
+                SmallFloatingActionButton(onClick = { navController.navigate(GastoScreen.Salida.name + "?id=$id")})
                 {
-                    Icon(imageVector = Icons.Default.Clear, contentDescription = "Delete")
+                    Icon(imageVector = Icons.Default.Add, contentDescription = "Gastos")
                 }
             }
         }

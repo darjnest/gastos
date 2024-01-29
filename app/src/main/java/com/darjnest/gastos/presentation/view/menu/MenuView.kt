@@ -20,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.darjnest.gastos.presentation.view.utils.logo.LogoView
 import com.darjnest.gastos.presentation.view.utils.text.TextView
+import kotlin.system.exitProcess
 
 
 @Preview
@@ -46,7 +47,7 @@ fun MenuView(navController: NavController) {
             }
         },
         actions = {
-            IconButton(onClick = {  }) {
+            IconButton(onClick = { exitProcess(0) }) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ExitToApp,
                     contentDescription = "Salir"
